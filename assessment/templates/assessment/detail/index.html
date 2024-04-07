@@ -1,0 +1,12 @@
+{% if latest_question_list %}
+<h3>
+    Avaliação: {{ assessment.title }}
+</h3>
+<ul>
+    {% for question in latest_question_list %}
+    <li><a href="/assessment/{{ assessment.id }}/{{ question.id }}/">{{ question.content }}</a></li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No questions are available.</p>
+{% endif %}

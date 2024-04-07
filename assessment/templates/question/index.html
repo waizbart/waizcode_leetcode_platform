@@ -1,0 +1,11 @@
+{% if question %}
+<h3>
+    Título: {{ question.title }}
+</h3>
+<p>
+    Enunciado: {{ question.content }}
+</p>
+<ul>
+{% else %}
+<p>Questão não encontrada.</p>
+{% endif %}
