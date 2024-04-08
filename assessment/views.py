@@ -20,15 +20,34 @@ def detail(request, assessment_id):
         }
         return HttpResponse(template.render(context, request))
     except Assessment.DoesNotExist:
-        return HttpResponse("Assessment does not exist")
+        template = loader.get_template("error_page.html")
+        context = {
+            "error": {
+                "code": 404,
+                "title": "Assessment not found",
+                "message": "Assessment does not exist",
+            }
+        }
+        return HttpResponse(template.render(context, request))
 
 def question(request, assessment_id, question_id):
-    q = Question.objects.get(pk=question_id, assessment_id=assessment_id)
-    template = loader.get_template("question/index.html")
-    context = {
-        "question": q,
-    }
-    return HttpResponse(template.render(context, request))
+    try:
+        q = Question.objects.get(pk=question_id, assessment_id=assessment_id)
+        template = loader.get_template("question/index.html")
+        context = {
+            "question": q,
+        }
+        return HttpResponse(template.render(context, request))
+    except Question.DoesNotExist:
+        template = loader.get_template("error_page.html")
+        context = {
+            "error": {
+                "code": 404,
+                "title": "Question not found",
+                "message": "Question does not exist",
+            }
+        }
+        return HttpResponse(template.render(context, request))
 
 def result(request, assessment_id):
     template = loader.get_template("assessment/result/index.html")

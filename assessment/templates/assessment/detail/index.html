@@ -1,12 +1,36 @@
-{% if latest_question_list %}
-<h3>
-    Avaliação: {{ assessment.title }}
-</h3>
-<ul>
-    {% for question in latest_question_list %}
-    <li><a href="/assessment/{{ assessment.id }}/{{ question.id }}/">{{ question.content }}</a></li>
-    {% endfor %}
-</ul>
-{% else %}
-<p>No questions are available.</p>
-{% endif %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static '/css/assessments/details.css' %}" />
+    <title>{{ assessment.title }}</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>{{ assessment.title }}</h1>
+
+      {% if latest_question_list %}
+      <div class="exercises">
+        {% for question in latest_question_list %}
+        <div class="exercise">
+          <div class="title">
+            <h2>{{ question.title }}</h2>
+            <div class="status pending">Pendente</div>
+          </div>
+
+          <button
+            onclick="window.location.href = '/assessment/{{ assessment.id }}/{{ question.id }}'"
+          >
+            Responder
+          </button>
+        </div>
+        {% endfor %}
+      </div>
+      {% else %}
+      <p>Nenhuma questão disponível no momento.</p>
+      {% endif %}
+    </div>
+  </body>
+</html>
