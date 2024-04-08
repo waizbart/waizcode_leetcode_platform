@@ -9,7 +9,7 @@ class Assessment(models.Model):
 
 class Question(models.Model):
     title = models.CharField(max_length=200)
-    content = models.CharField(max_length=200)
+    content = models.CharField(max_length=10000)
     created_at = models.DateTimeField(auto_now_add=True)
     expected_output = models.CharField(max_length=200)
     assessment = models.ForeignKey(Assessment, on_delete=models.CASCADE)

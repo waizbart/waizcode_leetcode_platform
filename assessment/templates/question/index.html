@@ -1,11 +1,29 @@
-{% if question %}
-<h3>
-    Título: {{ question.title }}
-</h3>
-<p>
-    Enunciado: {{ question.content }}
-</p>
-<ul>
-{% else %}
-<p>Questão não encontrada.</p>
-{% endif %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static '/css/questions/index.css' %}" />
+    <title>Questão - Enviar resposta</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="question-info">
+        <h2>Questão: {{ question.title }}</h2>
+        {{ question.content|safe }}
+      </div>
+      <div class="answer-section">
+        <form>
+          <textarea
+            id="answer"
+            name="answer"
+            rows="10"
+            placeholder="Digite sua resposta aqui"
+          ></textarea>
+          <button type="submit">Enviar Resposta</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
