@@ -6,8 +6,14 @@ body {
   height: 100vh;
 }
 
-#editor textarea {
-  caret-color: #3498db;
+#editor {
+  caret-color: black;
+  font-size: 0.8em;
+}
+
+#editor textarea::selection {
+  background: #3498db;
+  color: white;
 }
 
 .container {
@@ -29,21 +35,16 @@ body {
 }
 
 .answer-section {
-  padding: 20px;
-  width: 100vw;
+  flex: 1;
+  padding: 10px;
+  margin-bottom: 10px;
+  overflow-x: scroll;
 }
 
 .answer-section form {
   flex: 1;
   display: flex;
   flex-direction: column;
-}
-
-.answer-section .codearea {
-  flex: 1;
-  padding: 10px;
-  margin-bottom: 10px;
-  resize: none;
 }
 
 .answer-section button {

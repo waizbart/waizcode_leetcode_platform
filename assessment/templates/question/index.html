@@ -9,9 +9,7 @@
   <title>Questão - Enviar resposta</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism.min.css" rel="stylesheet">
   <style>
-    #editor code[contenteditable] {
-      caret-color: black !important;
-    }
+    
   </style>
 </head>
 
@@ -22,12 +20,15 @@
       {{ question.content|safe }}
     </div>
     <section class="answer-section">
-      <code-bedder id="editor" data-language="js" onhighlight="Prism.highlightElement(this)" style="width: 100%"></code-bedder>
+      <code-bedder id="editor" data-language="js" onhighlight="Prism.highlightElement(this)">/* 
+* Escreva aqui sua solução 
+* para a questão utilizando JavaScript
+*/</code-bedder>
     </section>
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
-  <script src="codebedder.js"></script>
+  <script src="{% static '/js/questions/codebedder.js' %}"></script>
 </body>
 
 </html>
