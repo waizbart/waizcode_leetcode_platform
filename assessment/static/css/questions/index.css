@@ -6,6 +6,10 @@ body {
   height: 100vh;
 }
 
+#editor textarea {
+  caret-color: #3498db;
+}
+
 .container {
   width: 100%;
   height: 100%;
@@ -25,9 +29,8 @@ body {
 }
 
 .answer-section {
-  flex: 1;
   padding: 20px;
-  display: flex;
+  width: 100vw;
 }
 
 .answer-section form {
@@ -36,7 +39,7 @@ body {
   flex-direction: column;
 }
 
-.answer-section textarea {
+.answer-section .codearea {
   flex: 1;
   padding: 10px;
   margin-bottom: 10px;
@@ -66,7 +69,7 @@ body {
     padding-left: 20px;
   }
 
-  .answer-section textarea {
+  .answer-section div {
     height: calc(100% - 20px);
   }
 }
