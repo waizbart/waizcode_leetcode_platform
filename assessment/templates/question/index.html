@@ -1,34 +1,51 @@
-{%load static%}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static '/css/questions/index.css' %}" />
+    <title>Questão - Enviar resposta</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism.min.css"
+      rel="stylesheet"
+    />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="{% static '/css/questions/index.css' %}" />
-  <title>Questão - Enviar resposta</title>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism.min.css" rel="stylesheet">
-  <style>
-    
-  </style>
-</head>
+  <body>
+    <div class="container">
+      <div class="question-info">
+        <h2>Questão: {{ question.title }}</h2>
+        {{ question.content|safe }}
+      </div>
+      <form
+        class="answer-section"
+        action="{% url 'submit' question.assessment_id question.id %}"
+        method="POST"
+      >
+        {% csrf_token %}
+        <div class="code">
+          <code-bedder
+            id="editor"
+            data-language="js"
+            onhighlight="Prism.highlightElement(this)"
+            >/** 
+  Escreva aqui sua solução 
+  para a questão utilizando Python
+**/
+          </code-bedder
+          >
+        </div>
 
-<body>
-  <div class="container">
-    <div class="question-info">
-      <h2>Questão: {{ question.title }}</h2>
-      {{ question.content|safe }}
+        <div class="actions">
+          <button id="submit" type="submit">Enviar resposta</button>
+          <button id="reset" type="reset">Limpar</button>
+        </div>
+      </form>
     </div>
-    <section class="answer-section">
-      <code-bedder id="editor" data-language="js" onhighlight="Prism.highlightElement(this)">/* 
-* Escreva aqui sua solução 
-* para a questão utilizando JavaScript
-*/</code-bedder>
-    </section>
-  </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
-  <script src="{% static '/js/questions/codebedder.js' %}"></script>
-</body>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+    <script src="{% static '/js/questions/codebedder.js' %}"></script>
+    <script src="{% static '/js/questions/index.js' %}"></script>
+  </body>
 </html>

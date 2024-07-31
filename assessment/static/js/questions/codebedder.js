@@ -149,6 +149,7 @@
         this.textarea = document.createElement('textarea');
         this.textarea.setAttribute('spellcheck', false);
         this.textarea.value = codeContent;
+        this.textarea.name = "answer";
         this.appendChild(this.textarea);
   
         this.textarea.addEventListener('input', function () {

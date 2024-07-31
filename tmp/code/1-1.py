@@ -1,0 +1,5 @@
+n = input()
+
+
+
+print(n)

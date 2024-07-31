@@ -1,6 +1,8 @@
 from django.http import HttpResponse
 from django.template import loader
 
+from assessment.utils import run_python_script_with_input, save_code_file
+
 from .models import Question, Assessment
 
 def index(_):
@@ -55,3 +57,20 @@ def result(request, assessment_id):
         "assessment_id": assessment_id,
     }
     return HttpResponse(template.render(context, request))
+
+def submit(request, assessment_id, question_id):
+    answer = request.POST.get("answer")
+    q = Question.objects.get(pk=question_id, assessment_id=assessment_id)
+    
+    file_path = 'tmp/code/{}-{}.py'.format(assessment_id, question_id)
+    
+    save_code_file(answer, file_path)
+    
+    code_result = run_python_script_with_input(file_path, q.input_text)
+    
+    print(code_result)
+   
+    if q.check_answer(code_result):
+        return HttpResponse("Correct answer!")
+    else:
+        return HttpResponse("Incorrect answer!")

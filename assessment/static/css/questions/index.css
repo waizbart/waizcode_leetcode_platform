@@ -35,21 +35,19 @@ body {
 }
 
 .answer-section {
-  flex: 1;
+  display: flex;
+  flex-direction: column;
   padding: 10px;
-  margin-bottom: 10px;
-  overflow-x: scroll;
+  width: 40%;
 }
 
 .answer-section form {
-  flex: 1;
   display: flex;
   flex-direction: column;
 }
 
 .answer-section button {
   padding: 10px 20px;
-  background-color: #3498db;
   color: #fff;
   border: none;
   border-radius: 4px;
@@ -57,7 +55,27 @@ body {
 }
 
 .answer-section button:hover {
-  background-color: #2980b9;
+  transform: scale(1.05);
+  transition: 0.1s;
+}
+
+.answer-section #submit {
+  background-color: #3498db;
+}
+
+.answer-section #reset {
+  background-color: #e74c3c;
+}
+
+.answer-section .code {
+  height: 100%
+}
+
+.answer-section .actions {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0 0 0;
+  height: auto;
 }
 
 /* Breakpoints */
@@ -78,5 +96,11 @@ body {
 @media screen and (max-width: 767px) {
   .container {
     padding-bottom: 50px; 
+  }
+
+  .answer-section {
+    width: 95%;
+    margin: 0 auto;
+    align-self: center;
   }
 }
