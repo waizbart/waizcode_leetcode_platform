@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Error Page</title>
+    <title>Success Page</title>
     <style>
       body {
         font-family: Arial, sans-serif;
@@ -16,7 +16,7 @@
         height: 100vh;
       }
 
-      .error-container {
+      .success-container {
         text-align: center;
         background-color: #fff;
         border-radius: 10px;
@@ -25,14 +25,14 @@
       }
 
       h1 {
-        color: #e74c3c;
+        color: #4de73c;
         font-size: 4em;
         margin-bottom: 20px;
         margin-top: 0;
       }
 
       h2 {
-        color: #e74c3c;
+        color: #4de73c;
         margin-bottom: 1rem;
       }
 
@@ -73,11 +73,12 @@
     </style>
   </head>
   <body>
-    <div class="error-container">
-      <h1>{{ error.code }}</h1>
-      <h2>{{ error.title }}</h2>
-      <h3>{{ error.message }}</h3>
-      <button onclick="history.back()">Voltar</button>
+    <div class="success-container">
+      <h2>{{ success.title }}</h2>
+      <h3>{{ success.message }}</h3>
+      <button onclick="window.location.href = '{{ success.redirect }}'">
+        Ir para questões
+      </button>
     </div>
   </body>
 </html>

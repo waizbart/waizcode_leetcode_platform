@@ -19,10 +19,14 @@ class Question(models.Model):
     
     def check_answer(self, answer):
         return self.expected_output == answer
+    
+    def is_approved(self):
+        return self.submission_set.filter(approved=True).count() > 0
 
 class Submission(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
-    submission_text = models.CharField(max_length=200)
+    code_path = models.CharField(max_length=10000)
+    approved = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     def __str__(self):
-        return self.submission_text
+        return self.code_path

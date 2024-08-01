@@ -17,14 +17,20 @@
         <div class="exercise">
           <div class="title">
             <h2>{{ question.title }}</h2>
+            {% if question.is_approved %}
+            <div class="status complete">Aprovado</div>
+            {% else %}
             <div class="status pending">Pendente</div>
+            {% endif %}
           </div>
 
+          {% if not question.is_approved %}
           <button
             onclick="window.location.href = '/assessment/{{ assessment.id }}/{{ question.id }}'"
           >
             Responder
           </button>
+          {% endif %}
         </div>
         {% endfor %}
       </div>
