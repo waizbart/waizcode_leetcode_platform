@@ -35,6 +35,18 @@ def detail(request, assessment_id):
 def question(request, assessment_id, question_id):
     try:
         q = Question.objects.get(pk=question_id, assessment_id=assessment_id)
+        
+        if q.is_approved():
+            template = loader.get_template("success_page.html")
+            context = {
+                "success": {
+                    "title": "Resposta correta!",
+                    "message": "Parabéns! Sua resposta está correta!",
+                    "redirect": "/assessment/{}".format(assessment_id),
+                }
+            }
+            return HttpResponse(template.render(context, request))
+        
         template = loader.get_template("question/index.html")
         context = {
             "question": q,
@@ -50,13 +62,6 @@ def question(request, assessment_id, question_id):
             }
         }
         return HttpResponse(template.render(context, request))
-
-def result(request, assessment_id):
-    template = loader.get_template("assessment/result/index.html")
-    context = {
-        "assessment_id": assessment_id,
-    }
-    return HttpResponse(template.render(context, request))
 
 def submit(request, assessment_id, question_id):
     try:

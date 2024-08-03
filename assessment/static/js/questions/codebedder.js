@@ -20,7 +20,7 @@
     --code-bedder-tab-size: 2;
     --code-bedder-font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
     --code-bedder-font-size: 14px;
-    --code-bedder-caret-color: black;
+    --code-bedder-caret-color: white;
     --code-bedder-selection-background: hsla(0, 0%, 100%, 0.2);
   
     --code-bedder-scrollbar-size: 0.5rem;

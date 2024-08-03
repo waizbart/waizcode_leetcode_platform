@@ -19,6 +19,8 @@ def run_python_script_with_input(script_path, input_str):
 
     if error:
         clean_output += '\n' + error
+        
+    print(clean_output)
 
     return clean_output
 
