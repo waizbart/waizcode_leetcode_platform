@@ -1,19 +1,16 @@
 n = int(input())
 
-fibonacci_sequence = []
+def fib(n):
+    if n <= 0:
+        return 0
+    elif n == 1:
+        return 1
     
-if n <= 0:
-    print(" ".join(fibonacci_sequence))
+    a, b = 0, 1
     
-a, b = 0, 1
+    for _ in range(2, n + 1):
+        a, b = b, a + b
     
-fibonacci_sequence.append(str(a))
-    
-if n > 1:
-    fibonacci_sequence.append(str(b))
-    
-for _ in range(2, n):
-    a, b = b, a + b
-    fibonacci_sequence.append(str(b))
+    return a
 
-print(" ".join(fibonacci_sequence))
+print(fib(n))

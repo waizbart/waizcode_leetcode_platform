@@ -26,8 +26,8 @@ def detail(request, assessment_id):
         context = {
             "error": {
                 "code": 404,
-                "title": "Assessment not found",
-                "message": "Assessment does not exist",
+                "title": "Avaliação não encontrada",
+                "message": "Avaliação não existe",
             }
         }
         return HttpResponse(template.render(context, request))
@@ -57,8 +57,8 @@ def question(request, assessment_id, question_id):
         context = {
             "error": {
                 "code": 404,
-                "title": "Question not found",
-                "message": "Question does not exist",
+                "title": "Questão não encontrada",
+                "message": "Questão não existe",
             }
         }
         return HttpResponse(template.render(context, request))
@@ -105,8 +105,8 @@ def submit(request, assessment_id, question_id):
         context = {
             "error": {
                 "code": 404,
-                "title": "Question not found",
-                "message": "Question does not exist",
+                "title": "Questão não encontrada",
+                "message": "Questão não existe",
             }
         }
         return HttpResponse(template.render(context, request))
@@ -115,7 +115,7 @@ def submit(request, assessment_id, question_id):
         context = {
             "error": {
                 "code": 500,
-                "title": "Internal server error",
+                "title": "Erro interno",
                 "message": str(e),
             }
         }
