@@ -26,7 +26,7 @@ SECRET_KEY = "django-insecure-tid516vful+aebkxk2lbrszl)wi09+dll645k)!7h(&a-d$=ly
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "assessment.apps.assessmentConfig",
+    "home.apps.homeConfig",
     "django_browser_reload"
 ]
 

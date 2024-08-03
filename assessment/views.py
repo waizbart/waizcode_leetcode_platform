@@ -5,10 +5,6 @@ from assessment.utils import run_python_script_with_input, save_code_file
 
 from .models import Question, Assessment, Submission
 
-def index(_):
-    template = loader.get_template("assessment/index.html")
-    return HttpResponse(template.render())
-
 def detail(request, assessment_id):
     try:
         assessment = Assessment.objects.get(pk=assessment_id)
@@ -67,7 +63,7 @@ def submit(request, assessment_id, question_id):
         answer = request.POST.get("answer")
         q = Question.objects.get(pk=question_id, assessment_id=assessment_id)
         
-        file_path = 'tmp/code/{}-{}.py'.format(assessment_id, question_id)
+        file_path = 'uploads/code/{}-{}.py'.format(assessment_id, question_id)
         
         save_code_file(answer, file_path)
         

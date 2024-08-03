@@ -1,18 +1,18 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
+  background-color: #292F36;
   margin: 0;
   padding: 0;
   height: 100vh;
 }
 
 #editor {
-  caret-color: black;
+  caret-color: white;
   font-size: 0.8em;
 }
 
 #editor textarea::selection {
-  background: #3498db;
+  background: #17C3B2;
   color: white;
 }
 
@@ -26,19 +26,20 @@ body {
 .question-info {
   flex: 1;
   padding: 20px;
-  border-right: 1px solid #ddd;
+  border-right: 1px solid #dddddd16;
   overflow-y: auto;
+  color: #fff;
 }
 
 .question-info h2 {
-  color: #333;
+  color: #17C3B2;
 }
 
 .answer-section {
   display: flex;
   flex-direction: column;
   padding: 10px;
-  width: 40%;
+  width: 50%;
 }
 
 .answer-section form {
@@ -49,6 +50,7 @@ body {
 .answer-section button {
   padding: 10px 20px;
   color: #fff;
+  font-weight: bold;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -60,11 +62,11 @@ body {
 }
 
 .answer-section #submit {
-  background-color: #3498db;
+  background-color: #17C3B2;
 }
 
 .answer-section #reset {
-  background-color: #e74c3c;
+  background-color: #EE4266;
 }
 
 .answer-section .code {

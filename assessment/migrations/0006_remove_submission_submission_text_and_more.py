@@ -21,7 +21,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name="submission",
             name="code_path",
-            field=models.CharField(default="tmp/code/1-1.py", max_length=10000),
+            field=models.CharField(default="uploads/code/1-1.py", max_length=10000),
             preserve_default=False,
         ),
     ]
